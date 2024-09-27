@@ -13,6 +13,11 @@ contentTags:
 
 This page describes common methods for testing applications powered by large language models (LLMs) through evaluations.
 
+[NOTE]
+====
+This documentation is only applicable for https://circleci.com/developer/orbs/orb/circleci/evals?version=1.0.8[Evals Orb versions ≤ 1.0.8]
+====
+
 == Evaluations overview
 
 Evaluations, also known as evals, are a methodology for assessing the quality of AI software.
@@ -50,11 +55,11 @@ With CircleCI, you can define, automate, and run evaluations using your preferre
 
 Using an open source library or third-party tools can simplify defining evaluations, tracking progress, and reviewing the evaluation outcomes.
 
-== The CircleCI Evals orb
+== The CircleCI Evals Orb
 
 [NOTE]
 ====
-The link:https://circleci.com/developer/orbs/orb/circleci/evals[official Evals orb] supports integrations with Braintrust and LangSmith.
+The link:https://circleci.com/developer/orbs/orb/circleci/evals?version=1.0.8[official Evals Orb 1.0.8] supports integrations with Braintrust and LangSmith.
 
 If you run evaluations using a different tool, let us know at mailto:ai-feedback@circleci.com[]. You can also contribute directly to the official orb by opening a PR on the link:https://github.com/CircleCI-Public/ai-evals-orb[public repository].
 ====
@@ -84,7 +89,7 @@ Need code example in CircleCI-public
 You can find a full tutorial of how to use the Evals orb on this page.
 ////
 
-Further documentation on how to use the orb is available on the link:https://circleci.com/developer/orbs/orb/circleci/evals[Orb page]. Orb usage examples are available in the sample repository link:https://github.com/CircleCI-Public/llm-eval-examples[[LLM-eval-examples].
+Further documentation on how to use the orb is available on the link:https://circleci.com/developer/orbs/orb/circleci/evals[Evals Orb 1.0.8 page]. Usage examples are available in the sample repository link:https://github.com/CircleCI-Public/llm-eval-examples[LLM-eval-examples].
 
 == Storing credentials for your evaluations
 CircleCI makes it easy to store your credentials for LLM providers as well as LLMOps tools. Navigate to menu:Project Settings[LLMOps] to enter, verify, and access your OpenAI secrets. You will also find a starting template for your `config.yml` file.
@@ -96,5 +101,3 @@ To get started, navigate to menu:Project Settings[LLMOps]:
 image::/docs/assets/img/docs/llmops/create-context.png[Jobs overview]
 
 image::/docs/assets/img/docs/llmops/openai-context.png[Jobs overview]
-
-
