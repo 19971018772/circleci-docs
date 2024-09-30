@@ -2,64 +2,91 @@
 contentTags:
   platform:
   - Cloud
+  - Server
 ---
 = Introduction to the CircleCI Web App
 :page-layout: classic-docs
 :page-liquid:
-:page-description: This document describes the basic features and settings of the CircleCI web app.
+:page-description: This document describes the basic features and settings available in the CircleCI web app.
 :icons: font
 :experimental:
 
-The CircleCI web application is a graphic user interface for many of the same features that are available in the CircleCI command line interface. The application can be found at link:https://app.circleci.com[https://app.circleci.com].
+The CircleCI web application is a graphic user interface for managing your projects, settings, integrations and organizations. The application can be found at link:https://app.circleci.com[https://app.circleci.com].
 
-Inside the application, you will find the status of builds, workflows and jobs, as well as organization settings. This page is not an extensive guide to the web app, but is an introduction to some of the information, options, and settings available.
+Inside the application, you will find the status of pipelines, workflows and jobs, as well as organization and project settings. You will also find Insights for managing your projects and organizations, and release environments for viewing and managing your releases.
 
-[#dashboard-and-side-navigation]
-== Dashboard and side navigation
+This page is not an extensive guide to the web app, but is an introduction to some of the information, options, and settings available.
 
-Upon logging in, you will see the **Dashboard**, showing you the status of pipelines in the projects that you are _following_. The dropdown menus at the top of the dashboard allow you to select to view everyone's pipelines, or just your own pipelines, as well as all projects, or specific projects. Clicking the organization name will open the **organization switcher**, which shows all organizations that have been set up. You can switch between these organizations to see their individual dashboards.
+== User homepage
 
-image::web_ui_dashboard.png[Dashboard page]
+When you visit the link:https://app.circleci.com[CircleCI web application] you will land on your **user homepage**.
 
-If you do not have any projects in your dashboard, or you are missing specific projects, you can select **Projects** on the side navigation. The projects view shows the list of all projects within the organization, which you can choose to follow or unfollow. Following a project will add it to your dashboard. Unfollowing a project will remove it from your dashboard.
+image::user-homepage.png[User homepage]
 
-The side navigation allows you to visit the following web application pages:
+The user homepage gives your an overview of the organizations of which you are a member, along with options to create a new organization or join an existing organization.
 
-**Projects**: Allows you to see all projects associated with your organization. Choose to follow or unfollow projects, as well as set up new projects.
+At the top right of the screen you will see notifications and get access to help resources. You can also select your icon to access user settings or to sign out of the app.
 
-**Insights**: Provides you with time-series data overviews of credit usage, success rates, and pipeline duration, among other things.
+At the top left of the screen you will find the CircleCI status badge. The status badge displays the operational health of CircleCI. Select the status badge to enter CircleCI's status page.
 
-**Self-Hosted Runners**: Shows a list of your resource classes and self-hosted runners. This page also allows you to set up self-hosted runners, so you can use your own infrastructure for running jobs.
+Select an org card to take a look around. The following section describe the various features and options you will find for each organization.
 
-**Organization Settings**: Settings for your organization including contexts, security, and orbs, among other things. You can also find your organization ID on this page.
+== Organization homepage and navigation
+
+After selecting an organization you will find yourself on the organization homepage. The organization home page shows an overview of your org's projects and some metrics to help you get an overview of project health along with compute and credit usage for your org.
+
+image::org-homepage.png[Organization homepage]
+
+TIP: Once you have selected an org, you can select the btn:[CircleCI] logo in the top bar to get back to your user homepage at any time.
+
+From your organization home page you have access to org-level options. You can create a project, select and existing project using the overview project cards, or use the sidebar navigation items to access other areas of the product. The sidebar navigation allows you to visit the following pages (some of these sections are discussed in more detail below):
+
+**Pipelines**: View all pipelines associated with your organization, You can expand each pipeline to view workflow status, job status, job details, the workflows map, and more. Each pipeline includes controls for cancelling or rerunning workflows, and accessing project settings. If a pipeline has multiple workflows there will be a grey bar on the left, and you can see the status of each workflow and expand them individually to view the status of each individual job.
+
+**Projects**: Allows you to see all projects associated with your organization. Choose to follow or unfollow projects, as well as xref:create-project#[create/set up new projects].
+
+**Releases**: Set up environment integrations to manage releases for your projects. For full details of the Releases feature, see the xref:release/releases-overview#[Release overview] page.
+
+**Insights**: Provides you with time-series data overviews of credit usage, success rates, pipeline duration, and more. For full details of the Insights feature, see the xref:insights#[Using Insights] page.
+
+**Self-Hosted Runners**: Set up self-hosted runners to use your own infrastructure for running jobs. Once set up the self-hosted runners dashboard shows a list of your resource classes and self-hosted runners. For full details covering installation, setup, and usage, see the xref:runner-overview#[Self-hosted runners overview] page.
+
+**Organization Settings**: Settings for your organization including org roles and groups, contexts, security, orbs and more. You can find your organization ID on this page.
 
 **Plan**: Shows your network and storage usage, as well as additional settings related to your plan.
 
-**Notifications**: A tooltip with new features or changes. New notifications are identified with a badge next to the navigation item.
-
-**Status**: The status badge will display the operational health of CircleCI. Clicking on this navigation item will bring you to CircleCI's status page.
-
-**Support**: A tooltip with links to community help forums, CircleCI support, as well as links to CircleCI's feature requests and changelog pages.
-
-At the very bottom of the side navigation (you may have to scroll down), you will see your individual **user icon**. Clicking on this will bring you to your individual **User Settings**.
-
 The sections below describe some of the pages of the web application in more detail.
+
+=== Pipelines dashboard
+
+Select **Pipelines** in the sidebar to enter the pipelines dashboard. By default this page shows the workflow status for all pipelines for all the projects that you are _following_. Use the filters at the top of the page to view the following:
+
+* All pipelines.
+* Just your pipelines.
+* Pipelines for a specific project, and within this a specific branch.
+* Pipelines triggered before a specific day range, for example "Greater than 90 days". This can be helpful when analyzing historical data, as it allows you to filter out and focus on older pipelines without having to scroll through a large amount of data.
+* Use the filter icon to restrict the workflow statuses that you are interested in viewing. For example if you only want to see pipelines with workflows that are "Failed" and "Needs Approval", you can select those options from the filter menu.
+
+If you are missing specific projects from the pipelines dashboard, you can select **Projects** on the side navigation. The projects view shows the list of all projects within the organization, which you can choose to follow or unfollow. Following a project will add it to your dashboard. Unfollowing a project will remove it from your dashboard.
 
 [#view-and-navigate-pipelines]
 == View and navigate pipelines
 
-Your pipelines appear on the **Dashboard** of the CircleCI web app as they are triggered. You can view workflows or single jobs by expanding a pipeline and clicking in on any workflow or job descriptor.
+Your pipelines appear on the **Pipelines** dashboard of the CircleCI web app as they are triggered. You can view workflows or single jobs by expanding a pipeline and clicking on any workflow or job descriptor.
 
 When viewing a single job in a pipeline, you can use the breadcrumbs at the top of the page to navigate back to a job's respective workflow or pipeline.
 
-image:pipeline-breadcrumbs.png[Pipelines Breadcrumbs]
+image:pipeline-navigation.png[Pipeline navigation]
 
 [#organization-switching]
 == Organization switching
 
-In the top left of the web app, you will find the organization (org) switcher.
+If you want to change which org you are working within, you have a few options:
 
-image:org-centric-ui_newui.png[Switch organization menu in web app]
+* Select the btn:[CircleCI] logo in the top bar to get back to your user homepage at any time (1). From the user home page you can select the org that you want to work in. You can also create a new organization from your user home page.
+* Once in an org view you can also use the org switcher at the top of the sidebar (2).
+
+image:org-switch.png[Switch organization using the user homepage or the org switcher]
 
 If you do not see your project and it is not currently building on CircleCI, check your org in the top left corner of the CircleCI application. For example, if the top left shows your user `my-user`, only projects belonging to `my-user` will be available. If you want to add the project `your-org/project`, you must select `your-org` from the org switcher.
 
