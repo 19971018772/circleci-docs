@@ -9,7 +9,7 @@ gem 'pygments.rb', '~> 1.1.2'
 gem 'rake'
 gem 'dotenv'
 gem "kramdown-parser-gfm"
-gem 'liquid-c', '~> 4.0.1'
+gem 'liquid-c', '~> 4.2.0'
 gem 'htmlcompressor'
 gem 'htmlentities', '~> 4.3', '>= 4.3.4'
 gem 'nokogiri', '~> 1.16.5'
